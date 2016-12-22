@@ -21,6 +21,7 @@
         <repository>
             <id>hgstars-snapshot</id>
             <url>http://nexus.yujindong.com/content/repositories/hgstars-snapshot</url>
+            <uniqueVersion>false</uniqueVersion>
         </repository>
     </distributionManagement>
 

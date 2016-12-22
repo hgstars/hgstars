@@ -14,7 +14,13 @@
         <module>wechat</module>
     </modules>
 
-
+    <distributionManagement>
+        <repository>
+            <id>hgstars-snapshot</id>
+            <url>http://nexus.yujindong.com/content/repositories/hgstars-snapshot</url>
+            <uniqueVersion>false</uniqueVersion>
+        </repository>
+    </distributionManagement>
 
     <!-- Abcde!@#456 -->
 </project>
