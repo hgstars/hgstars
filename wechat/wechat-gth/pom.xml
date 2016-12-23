@@ -368,8 +368,6 @@
                     <server>tomcat7</server>
                 </configuration>
             </plugin>
-
-
         </plugins>
     </build>
 

@@ -13,6 +13,7 @@
     <groupId>com.hgstars.models</groupId>
     <artifactId>hgstars-models</artifactId>
     <packaging>jar</packaging>
+    <name>Hgstars :: Modules :: models</name>
 
     <dependencies>
         <!-- hibernate -->
