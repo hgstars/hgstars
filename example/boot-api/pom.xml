@@ -28,13 +28,6 @@
         <java.version>1.8</java.version>
     </properties>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>dudu-snapshot</id>
-            <url>http://nexus.yujindong.com/content/repositories/dudu-snapshot</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <dependencies>
         <!-- spring boot -->
         <dependency>
