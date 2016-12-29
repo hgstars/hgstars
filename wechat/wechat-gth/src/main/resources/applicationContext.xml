@@ -25,12 +25,16 @@
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"> 
 		<property name="dataSource" ref="dataSource"/>
 		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
-		<property name="packagesToScan" value="com.hgstars.models.mysql"/>
+		<property name="packagesToScan" value="com.hgstars"/>
 		<property name="jpaProperties">
 			<props>
 				<!-- 命名规则 My_NAME->MyName -->
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 			</props>
+
 		</property>
 	</bean>
 	
@@ -113,6 +117,11 @@
 					<bean class="com.hgstars.wechat.gth.cache.redis.RedisCache">
 						<property name="redisTemplate" ref="redisTemplate" />
 						<property name="name" value="system.config" />
+						<property name="timeout" value="600" /><!-- 10分钟后过期 -->
+					</bean>
+					<bean class="com.hgstars.wechat.gth.cache.redis.RedisCache">
+						<property name="redisTemplate" ref="redisTemplate" />
+						<property name="name" value="account" />
 						<property name="timeout" value="600" /><!-- 10分钟后过期 -->
 					</bean>
 				</set>

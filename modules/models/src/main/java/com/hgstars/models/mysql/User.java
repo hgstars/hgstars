@@ -6,6 +6,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +14,8 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_user")
-public class User extends IdEntity{
+public class User extends IdEntity implements Serializable{
+    private static final long serialVersionUID = 6817380937002053645L;
     private String loginName;                               // 登录名
     private String nickName = "新用户";                      // 昵称
     private GenderEnum gender = GenderEnum.GENDER_SECRECY;  // 性别
@@ -51,7 +53,7 @@ public class User extends IdEntity{
     }
 
     @Column(name = "gender", length = 4)
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     public GenderEnum getGender() {
         return gender;
     }
