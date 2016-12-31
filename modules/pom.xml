@@ -16,6 +16,7 @@
         <module>parent</module>
         <module>models</module>
         <module>api</module>
+        <module>utils</module>
     </modules>
 
     <distributionManagement>
