@@ -9,7 +9,7 @@ import javax.persistence.MappedSuperclass;
  * Created by yujindong on 16/12/22.
  */
 @MappedSuperclass
-public class IdEntity {
+public abstract class IdEntity {
     protected Long id;
 
     @Id
