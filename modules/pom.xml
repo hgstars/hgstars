@@ -17,6 +17,7 @@
         <module>models</module>
         <module>api</module>
         <module>utils</module>
+        <module>core</module>
     </modules>
 
     <distributionManagement>

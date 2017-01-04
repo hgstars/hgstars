@@ -250,7 +250,7 @@ public class WXBizMsgCrypt {
 		Object[] encrypt = XMLParse.extract(postData);
 
 		// 验证安全签名
-		String signature = SHA1.getSHA1(token, timeStamp, nonce, encrypt[1].toString());
+		String signature = SHA1.getSHA1(token, timeStamp, nonce, "");
 
 		// 和URL中的签名比较是否相等
 		// System.out.println("第三方收到URL中的签名：" + msg_sign);
@@ -258,6 +258,16 @@ public class WXBizMsgCrypt {
 		if (!signature.equals(msgSignature)) {
 			throw new AesException(AesException.ValidateSignatureError);
 		}
+		System.out.println(msgSignature);
+		System.out.println(timeStamp);
+		System.out.println(nonce);
+		System.out.println("==============");
+		System.out.println(postData);
+		System.out.println("==============");
+		System.out.println(encrypt[0]);
+		System.out.println("==============");
+		System.out.println(encrypt[1]);
+		System.out.println("==============");
 
 		// 解密
 		String result = decrypt(encrypt[1].toString());
@@ -283,5 +293,25 @@ public class WXBizMsgCrypt {
 
 //		String result = decrypt(echoStr);
 		return echoStr;
+	}
+
+	public static void main(String[] args) throws AesException {
+		String wx_token="hgstarsgth";
+		String wx_appid="wxae121b42859aa754";
+		String wx_aeskey="t6kZuerd1mGkOnTmd6SiS5S3JsgEibhCsXfOQjIzdeu";
+
+
+		String a = "efede668274e6698014f086c4117856a987f3d63";
+		String b = "1483259674";
+		String c = "1866932308";
+		String d = "<xml>\n" +
+				"    <ToUserName><![CDATA[gh_89904f9dbcdb]]></ToUserName>\n" +
+				"    <Encrypt><![CDATA[1NQxYWYcepuKZsk/xCBMFeU7Kd7VO+QrYDZtYJKcTveXipBPpYNa6Z83uSgT8LTCc5saa5lwLBcmaD5PheNcpOi+2eP0jIJxzUvJhUxOnVtW2IuEsjbY3/Zh8Aoy9bYMvd5t/osb5xPdZvhLqSJpaSjrVA79xOpo8G7hMSZKFsdduD5VjADU5Zf8Wi89OqsS86t6Q4a4GFeLViv3k4Rr4ykQMeFToEqUbCP/iAMvYc0ttzsiZqy37IaGXjBIEhRvxTJ/+4kUcrvKZNfY9l0eObkcXHdkxih8xL1v5xTSIqnnh1SI0872qkfrxsy6TmjnoQ21kumnnW5X6TZVTgGgZaOAUi4iGihR4IL6WBfkBaXUUgvay84H/vYOU3NVpNnLfke+rmVU1NZzSoJL71EOPVKhmQUHBjCM6RQV2hxOIGI=]]></Encrypt>\n" +
+				"</xml>";
+//		String a = "efede668274e6698014f086c4117856a987f3d63";
+		WXBizMsgCrypt w = new WXBizMsgCrypt(wx_token,wx_aeskey,wx_appid);
+
+		String a1 = w.decryptMsg(a,b,c,d);
+		System.out.println(a1);
 	}
 }

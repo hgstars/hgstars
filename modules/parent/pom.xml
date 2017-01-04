@@ -56,6 +56,9 @@
         <lombok.version>1.16.6</lombok.version>
         <dubbo.version>2.5.3</dubbo.version>
         <zookeeper.version>3.4.9</zookeeper.version>
+        <spring-data-redis.version>1.4.4.RELEASE</spring-data-redis.version>
+        <redis-client.version>2.5.2</redis-client.version>
+
         <!-- 项目属性 -->
         <jdbc.driver.groupId>mysql</jdbc.driver.groupId>
         <jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
@@ -782,6 +785,20 @@
                 <version>${nosqlunit.version}</version>
                 <scope>test</scope>
             </dependency>
+
+            <!-- redis -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>${spring-data-redis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${redis-client.version}</version>
+            </dependency>
+
 
             <!-- memcached simulator -->
             <dependency>
