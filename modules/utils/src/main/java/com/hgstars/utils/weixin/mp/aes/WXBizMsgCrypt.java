@@ -258,17 +258,6 @@ public class WXBizMsgCrypt {
 		if (!signature.equals(msgSignature)) {
 			throw new AesException(AesException.ValidateSignatureError);
 		}
-		System.out.println(msgSignature);
-		System.out.println(timeStamp);
-		System.out.println(nonce);
-		System.out.println("==============");
-		System.out.println(postData);
-		System.out.println("==============");
-		System.out.println(encrypt[0]);
-		System.out.println("==============");
-		System.out.println(encrypt[1]);
-		System.out.println("==============");
-
 		// 解密
 		String result = decrypt(encrypt[1].toString());
 		return result;

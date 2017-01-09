@@ -1,7 +1,8 @@
-package com.hgstars.models.mysql;
+package com.hgstars.models.mysql.base;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.hgstars.models.mysql.base.IdEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;

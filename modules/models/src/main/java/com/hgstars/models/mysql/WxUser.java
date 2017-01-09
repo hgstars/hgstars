@@ -1,5 +1,6 @@
 package com.hgstars.models.mysql;
 
+import com.hgstars.models.mysql.base.BaseUser;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import javax.persistence.Entity;
